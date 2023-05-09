@@ -4,7 +4,8 @@
   "description": "Celerity server",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest __tests__",
+    "start": "node ./node_modules/env-cmd/bin/env-cmd.js -f ./.env nodemon main.js"
   },
   "author": "David S",
   "license": "ISC",
@@ -12,10 +13,13 @@
     "ajv": "^8.12.0",
     "body-parse": "^0.1.0",
     "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
     "express": "^4.18.2",
     "helmet": "^7.0.0",
-    "jest": "^29.5.0",
     "mongoose": "^7.1.0",
     "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }

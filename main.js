@@ -1,12 +1,13 @@
-import express from "express";
-import cors from "cors";
-import helmet from "helmet";
-// import carrierRouter from "./Carriers/carrier.routes.js";
-import { connectToDB } from "./config/db.config.js";
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+// const carrierRouter require("./Carriers/)carrier.routes.js";
+const { connectToDB } = require("./config/maindb.config.js");
 connectToDB();
 
 const port = process.env.PORT;
 
+const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());

@@ -1,9 +1,9 @@
-import * as mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const MONGODB_URL =
   process.env.MONGODB_URL || "http://127.0.0.1/celerity/sandbox";
 
-export const connectToDB = () => {
+exports.connectToDB = () => {
   mongoose
     .connect(MONGODB_URL, {
       useNewUrlParser: true,
