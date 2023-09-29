@@ -1,7 +1,7 @@
-const { Schema, model } = require("mongoose");
-// import { getNewKey } from '../utils/mongoose.utils.js';
+const mongoose = require("mongoose");
+const { getNewKey } = require("../utils/mongoose.utils");
 
-const CarrierSchema = new Schema(
+const CarrierSchema = new mongoose.Schema(
   {
     key: {
       type: Number,
@@ -29,14 +29,8 @@ const CarrierSchema = new Schema(
   { timestamps: true }
 );
 
-// CarrierSchema.pre('save', async function (next) {
-//   this.key = await getNewKey(Carrier);
+CarrierSchema.plugin(getNewKey, { schemaName: "carriers" });
 
-//   console.log('NEW KEY!!!!!', this.key);
-
-//   next();
-// });
-
-const Carrier = model("carriers", CarrierSchema, "carriers");
+const Carrier = mongoose.model("carriers", CarrierSchema, "carriers");
 
 module.exports = Carrier;

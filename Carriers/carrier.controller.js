@@ -2,9 +2,9 @@ const CarrierService = require("./carrier.service.js");
 
 exports.getCarriers = async (req, res) => {
   const parsedRequest = req.parsedRequest;
-
-  const carriers = await CarrierService.findAll(parsedRequest);
+  const carriers = await CarrierService.findAll(rql);
   return res.status(200).send(carriers);
+  return res.status(200).send([]);
 };
 
 exports.createCarrier = async (req, res) => {

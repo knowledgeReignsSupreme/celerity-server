@@ -5,9 +5,7 @@ class BaseConnector {
 
   async findAll(parsedRequest) {
     try {
-      let query = this.model.find(
-        parsedRequest.query ? parsedRequest.query : {}
-      );
+      let query = this.model.find(parsedRequest);
 
       if (parsedRequest.pageSize) {
         query = query.limit(parsedRequest.pageSize);

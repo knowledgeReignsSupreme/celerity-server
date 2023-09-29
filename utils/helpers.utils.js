@@ -1,11 +1,16 @@
-export function isObject(object) {
-  return typeof object === "object" && object !== null;
+function isObject(value) {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
-export function deleteKeysFromObject(object, keys) {
-  if (!isObject(object)) return;
+function deleteKeysFromObject(object, keys) {
+  if (!isObject(object) || !keys) return null;
 
   for (const key of keys) {
     delete object[key];
   }
 }
+
+module.exports = {
+  isObject,
+  deleteKeysFromObject,
+};
